@@ -4,9 +4,12 @@ yum install -y epel-release
 
 yum install -y git wget python-pip python-cryptography pyOpenSSL.x86_64 docker python-devel gcc screen
 
-pip install ansible==2.2.0.0
+pip install ansible==2.6.3.0
+
 git clone https://github.com/openshift/openshift-ansible
+
 git clone https://github.com/levkov/installcentos.git
+
 ssh-keygen -t rsa
 ssh-copy-id root@console.levkov.io
 ansible-playbook -i installcentos/inventory.erb ./openshift-ansible/playbooks/byo/config.yml
