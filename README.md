@@ -11,9 +11,13 @@ git clone https://github.com/openshift/openshift-ansible
 git clone https://github.com/levkov/installcentos.git
 
 ssh-keygen -t rsa
+
 ssh-copy-id root@console.levkov.io
+
 ansible-playbook -i installcentos/inventory.erb ./openshift-ansible/playbooks/byo/config.yml
+
 htpasswd -b /etc/origin/master/htpasswd admin PASSWORD123
+
 oc login -u system:admin -n default
 
 oadm policy add-scc-to-group anyuid system:authenticated
